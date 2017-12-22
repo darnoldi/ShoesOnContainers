@@ -59,6 +59,13 @@ namespace Arnoldi.Services.EntityRelationshipManagerAPI.Data
                 await context.SaveChangesAsync();
             }
 
+            if (!context.EntityType.Any())
+            {
+                context.EntityType.AddRange(
+                GetPreconfiguredEntityTypes());
+                await context.SaveChangesAsync();
+            }
+
             if (!context.EntityItems.Any())
             {
                 context.EntityItems.AddRange(

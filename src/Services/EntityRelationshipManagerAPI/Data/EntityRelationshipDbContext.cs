@@ -11,6 +11,7 @@ namespace Arnoldi.Services.EntityRelationshipManagerAPI.Data
     public class EntityRelationshipDbContext : DbContext
     {
         public DbSet<EntityAddressType> EntityAddressTypes { get; set; }
+        public DbSet<EntityType> EntityType { get; set; }
         public DbSet<EntityEmailAddressType> EntityEmailAddressTypes { get; set; }
         public DbSet<EntityItem> EntityItems { get; set; }
         public DbSet<EntityStatuatoryIdType> EntityStatuatoryIdTypes { get; set; }
