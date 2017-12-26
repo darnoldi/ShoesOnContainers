@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace EntityRelationshipManagerAPI
 {
@@ -28,11 +29,17 @@ namespace EntityRelationshipManagerAPI
         {
             services.Configure<CatalogSettings>(Configuration); // To make CatalogSettins injectable via IOptionsSnapshot
 
+            var hostname = Environment.GetEnvironmentVariable("SQLSERVER_HOST") ?? "localhost,1402";
+            var password = Environment.GetEnvironmentVariable("SA_PASSWORD") ?? "!IW2bac2821";
+       
+            var connectionString = $"Server={hostname};Database=EntityRelationshipDb;User ID=sa;Password={password};";
+           
             services.AddDbContext<EntityRelationshipDbContext>(options =>
-                        options.UseSqlServer(Configuration["Catalog:ConnectionString"]));
+                       options.UseSqlServer(connectionString));
 
-
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

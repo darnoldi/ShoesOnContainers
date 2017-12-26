@@ -207,5 +207,9 @@ namespace Arnoldi.Services.EntityRelationshipManagerAPI.Data
             
 
         }
+
+        public DbSet<Arnoldi.Services.EntityRelationshipManagerAPI.Domain.EntityAddress> EntityAddress { get; set; }
+
+        public DbSet<Arnoldi.Services.EntityRelationshipManagerAPI.Domain.EntityEmailAddress> EntityEmailAddress { get; set; }
     }
 }
