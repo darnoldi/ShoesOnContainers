@@ -33,7 +33,7 @@ namespace ShoesOnContainers.Services.ProductCatalogAPI.Data
 
             builder.Property(ci => ci.Id)
                 .ForSqlServerUseSequenceHiLo("catalog_hilo")
-                .IsRequired();
+                .IsRequired(true);
 
             builder.Property(ci => ci.Name)
                 .IsRequired(true)

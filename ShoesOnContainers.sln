@@ -15,6 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{225CFECD-4E3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helper Classes", "Helper Classes", "{4AA3DD6A-9727-4660-9725-06D5238CEAEE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker Scripts reference", "Docker Scripts reference", "{135DC002-EE34-4491-97E5-5CE51120C88D}"
+	ProjectSection(SolutionItems) = preProject
+		New MSSQL Developer container.txt = New MSSQL Developer container.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +44,7 @@ Global
 		{2320DF62-A2DD-4348-BC28-352FF27A71AF} = {C8C04CD9-25A3-47E3-98AB-8F8BB9A3C2DF}
 		{225CFECD-4E3C-429B-A14A-1F4151950652} = {90B2E854-00CA-44AB-99B8-24D281F61AB4}
 		{4AA3DD6A-9727-4660-9725-06D5238CEAEE} = {90B2E854-00CA-44AB-99B8-24D281F61AB4}
+		{135DC002-EE34-4491-97E5-5CE51120C88D} = {90B2E854-00CA-44AB-99B8-24D281F61AB4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36FDB3B1-B73A-4686-8210-4B055D8E7F6D}
