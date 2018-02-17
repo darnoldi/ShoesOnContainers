@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90B2E854-00CA-44AB-99B8-24D281F61AB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C8C04CD9-25A3-47E3-98AB-8F8BB9A3C2DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalogAPI", "src\Services\ProductCatalogAPI\ProductCatalogAPI.csproj", "{F0518F83-89BC-4585-ABBF-3A51CF195F84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductCatalogAPI", "src\Services\ProductCatalogAPI\ProductCatalogAPI.csproj", "{F0518F83-89BC-4585-ABBF-3A51CF195F84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityRelationshipManagerAPI", "src\Services\EntityRelationshipManagerAPI\EntityRelationshipManagerAPI.csproj", "{2320DF62-A2DD-4348-BC28-352FF27A71AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityRelationshipManagerAPI", "src\Services\EntityRelationshipManagerAPI\EntityRelationshipManagerAPI.csproj", "{2320DF62-A2DD-4348-BC28-352FF27A71AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{225CFECD-4E3C-429B-A14A-1F4151950652}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helper Classes", "Helper Classes", "{4AA3DD6A-9727-4660-9725-06D5238CEAEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,8 @@ Global
 		{C8C04CD9-25A3-47E3-98AB-8F8BB9A3C2DF} = {90B2E854-00CA-44AB-99B8-24D281F61AB4}
 		{F0518F83-89BC-4585-ABBF-3A51CF195F84} = {C8C04CD9-25A3-47E3-98AB-8F8BB9A3C2DF}
 		{2320DF62-A2DD-4348-BC28-352FF27A71AF} = {C8C04CD9-25A3-47E3-98AB-8F8BB9A3C2DF}
+		{225CFECD-4E3C-429B-A14A-1F4151950652} = {90B2E854-00CA-44AB-99B8-24D281F61AB4}
+		{4AA3DD6A-9727-4660-9725-06D5238CEAEE} = {90B2E854-00CA-44AB-99B8-24D281F61AB4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36FDB3B1-B73A-4686-8210-4B055D8E7F6D}
