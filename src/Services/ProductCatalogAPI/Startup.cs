@@ -35,7 +35,7 @@ namespace ProductCatalogAPI
             //var connectionString = $"Server={hostname};Database=CatalogDb;User ID=sa;Password={password};";
            
             services.AddDbContext<CatalogDbContext>(options =>
-                       options.UseSqlServer("connectionString"));
+                       options.UseSqlServer(Configuration["ConnectionString"]));
 
             services.AddMvc();
             //.AddJsonOptions(options => {

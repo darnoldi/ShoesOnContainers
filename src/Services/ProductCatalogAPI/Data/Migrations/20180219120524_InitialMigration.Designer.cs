@@ -11,8 +11,8 @@ using System;
 namespace ShoesOnContainers.Services.ProductCatalogAPI.Data.Migrations
 {
     [DbContext(typeof(CatalogDbContext))]
-    [Migration("20171219144027_Initial")]
-    partial class Initial
+    [Migration("20180219120524_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
