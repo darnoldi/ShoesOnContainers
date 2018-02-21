@@ -1,2 +1,1 @@
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=!IW2bac2821' -e 'MSSQL_PID=Developer' -p 1445:1443 --name=catalogdb
-microsoft/mssql-server-linux:latest
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=!IW2bac2821' -e 'MSSQL_PID=Developer' -p 1445:1433 --name=catalogdb microsoft/mssql-server-linux:latest

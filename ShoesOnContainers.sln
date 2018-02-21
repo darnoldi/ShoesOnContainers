@@ -18,9 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker Scripts reference", 
 		New MSSQL Developer container.txt = New MSSQL Developer container.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperClasses", "src\HelperClasses\HelperClasses\HelperClasses.csproj", "{68E8E2BA-26BA-4E81-B7E7-712A4139F167}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperClasses", "src\HelperClasses\HelperClasses\HelperClasses.csproj", "{68E8E2BA-26BA-4E81-B7E7-712A4139F167}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helper Classes", "Helper Classes", "{0038F609-D7AE-49D7-97C4-528B710576D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2180C891-2B96-4617-BB30-F5365FAE1FB9}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

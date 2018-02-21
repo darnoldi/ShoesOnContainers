@@ -1,0 +1,25 @@
+version "3.2"
+
+networks:
+   frontend:
+   backend:
+
+services:
+   catalog:
+      build:
+	     context: .\src\Services\ProductCatalogAPI
+		 dockerfile: dockerfile 
+	  environment:
+	     - DatabaseServer=mssqlserver
+		 - DatabaseName=CatalogDb
+		 - DatabaseUser=sa
+		 - DatabasePassword=!IW2bac2821
+   container_name: catalogapi
+   ports:
+      - "5001:80"
+   networks:
+      - backend
+	  - frontend
+   depends_on:
+      - mssqlserver
+
