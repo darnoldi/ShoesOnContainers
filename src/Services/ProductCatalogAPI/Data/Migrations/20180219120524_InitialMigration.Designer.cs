@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using ShoesOnContainers.Services.ProductCatalogAPI.Data;
+using APIStudio.Services.ProductCatalogAPI.Data;
 using System;
 
-namespace ShoesOnContainers.Services.ProductCatalogAPI.Data.Migrations
+namespace APIStudio.Services.ProductCatalogAPI.Data.Migrations
 {
     [DbContext(typeof(CatalogDbContext))]
     [Migration("20180219120524_InitialMigration")]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShoesOnContainers.Services.ProductCatalogAPI
+namespace APIStudio.Services.ProductCatalogAPI
 {
     public class CatalogSettings
     {

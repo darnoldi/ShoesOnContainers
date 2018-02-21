@@ -1,28 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using ShoesOnContainers.Services.ProductCatalogAPI.Data;
-using ShoesOnContainers.Services.ProductCatalogAPI.Domain;
-using ShoesOnContainers.Services.ProductCatalogAPI.ViewModel;
+using APIStudio.Services.ProductCatalogAPI.Data;
+using APIStudio.Services.ProductCatalogAPI.Domain;
+using APIStudio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APIStudio.HelperClasses.ViewModels;
 
-namespace ShoesOnContainers.Services.ProductCatalogAPI.Controllers
+namespace APIStudio.Services.ProductCatalogAPI.Controllers
 {
     [Produces("application/json")]
     [Route("api/Catalog")]
     public class CatalogController : Controller
     {
         private readonly CatalogDbContext _catalogContext;
-        private readonly CatalogSettings _settings;
+        private readonly IOptionsSnapshot<CatalogSettings> _settings;
 
 
         public CatalogController(CatalogDbContext context, IOptionsSnapshot<CatalogSettings> settings)
         {
             _catalogContext = context ?? throw new ArgumentNullException(nameof(context));
-            _settings = settings.Value;
+            _settings = settings;
             ((DbContext)context).ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
@@ -61,6 +62,7 @@ namespace ShoesOnContainers.Services.ProductCatalogAPI.Controllers
             var item = await _catalogContext.CatalogItems.SingleOrDefaultAsync(ci => ci.Id == id);
             if (item != null)
             {
+                item.PictureUri = ChangeUriPlaceholder(item);
                 return Ok(item);
             }
 
@@ -112,6 +114,7 @@ namespace ShoesOnContainers.Services.ProductCatalogAPI.Controllers
                 .LongCountAsync();
 
             var itemsOnPage = await root
+                .OrderBy(c => c.Name)
                 .Skip(pageSize * pageIndex)
                 .Take(pageSize)
                 .ToListAsync();
@@ -220,13 +223,23 @@ namespace ShoesOnContainers.Services.ProductCatalogAPI.Controllers
 
         private List<CatalogItem> ChangeUriPlaceholder(List<CatalogItem> items)
         {
-            var baseUri = _settings.ExternalCatalogBaseUrl;
+            var baseUri = _settings.Value.ExternalCatalogBaseUrl;
 
             items.ForEach(x =>
             {
                 x.PictureUri = x.PictureUri.Replace("http://externalcatalogbaseurltobereplaced", baseUri);
             });
             return items;
+        }
+
+        private string ChangeUriPlaceholder(CatalogItem item)
+        {
+            var baseUri = _settings.Value.ExternalCatalogBaseUrl;
+
+           
+                var newuri = item.PictureUri.Replace("http://externalcatalogbaseurltobereplaced", baseUri);
+           
+            return newuri;
         }
     }
 }

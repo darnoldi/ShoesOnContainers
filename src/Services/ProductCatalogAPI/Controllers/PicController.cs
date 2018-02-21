@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShoesOnContainers.Services.ProductCatalogAPI.Controllers
+namespace APIStudio.Services.ProductCatalogAPI.Controllers
 {
     [Produces("application/json")]
     [Route("api/Pic")]

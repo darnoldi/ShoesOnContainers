@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ShoesOnContainers.Services.ProductCatalogAPI.Data.Migrations
+namespace APIStudio.Services.ProductCatalogAPI.Data.Migrations
 {
     public partial class InitialMigration : Migration
     {

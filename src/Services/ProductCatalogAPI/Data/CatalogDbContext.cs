@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ShoesOnContainers.Services.ProductCatalogAPI.Domain;
+using APIStudio.Services.ProductCatalogAPI.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShoesOnContainers.Services.ProductCatalogAPI.Data
+namespace APIStudio.Services.ProductCatalogAPI.Data
 {
     public class CatalogDbContext : DbContext
     {
