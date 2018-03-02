@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using APIStudio.HelperClasses.ViewModels;
+using ShoesOnContainers.Services.ProductCatalogAPI.ViewModel;
 
 namespace APIStudio.Services.ProductCatalogAPI.Controllers
 {

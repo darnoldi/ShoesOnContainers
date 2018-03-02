@@ -29,13 +29,15 @@ namespace ProductCatalogAPI
         {
             services.Configure<CatalogSettings>(Configuration); // To make CatalogSettins injectable via IOptionsSnapshot
 
-            //var hostname = Environment.GetEnvironmentVariable("SQLSERVER_HOST") ?? "product_catalog_MsSQL,1401";
-            //var password = Environment.GetEnvironmentVariable("SA_PASSWORD") ?? "!IW2bac2821";
-       
-            //var connectionString = $"Server={hostname};Database=CatalogDb;User ID=sa;Password={password};";
-           
+            // string connectionstring docker.yaml
+            var server = Configuration["DatabaseServer"];
+            var database = Configuration["DatabaseName"];
+            var user = Configuration["DatabaseUser"];
+            var password = Configuration["DatabasePassword"];
+            var connectionString = string.Format("Server={0};Database={1};User={2};Password={3};", server, database, user, password);
+
             services.AddDbContext<CatalogDbContext>(options =>
-                       options.UseSqlServer(Configuration["ConnectionString"]));
+                       options.UseSqlServer(connectionString ));
 
             services.AddMvc()
             .AddJsonOptions(options => {

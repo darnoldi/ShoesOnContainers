@@ -8,7 +8,7 @@ RUN dotnet restore
 
 RUN dotnet publish --output /out/ --configuration Release
 
-	FROM microsoft/asnetcore:2.0.0
+	FROM microsoft/aspnetcore:2.0.0
 
 	COPY --from=build /out /app/
 
