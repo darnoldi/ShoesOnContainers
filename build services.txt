@@ -1,0 +1,6 @@
+from project path
+
+
+docker-compose build
+docker-compose up mssqlserver
+docker-compose up catalog
