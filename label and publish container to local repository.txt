@@ -1,0 +1,2 @@
+docker tag cartimage 192.168.1.200:5000/cartimage
+docker push 192.168.1.200:5000/cartimage

@@ -1,0 +1,114 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/Cart/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/cart/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Cart",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/cart",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Catalog/Items",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/items",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Catalog/Items/withname/{name}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/items/withname/{name}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Catalog/Items/type/{catalogTypeId}/brand/{catalogBrandId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/items/type/{catalogTypeId}/brand/{catalogBrandId}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Catalog/CatalogTypes",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/catalogtypes",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Catalog/CatalogBrands",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/catalogbrands",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Catalog/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Pic/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.200",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/pic/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+
+  ],
+  "GlobalConfiguration": {}
+}
