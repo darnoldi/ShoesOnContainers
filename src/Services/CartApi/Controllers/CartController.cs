@@ -41,6 +41,21 @@ namespace ShoesOnContainers.Services.CartApi.Controllers
             return Ok(basket);
         }
 
+        // PUT api/values
+        [HttpPut("{id}")]
+
+        [ProducesResponseType(typeof(Cart), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> Put (string id, [FromBody]Cart value)
+        {
+            var cart = await _repository.GetCartAsync(id);
+
+            foreach (CartItem itm in value.Items)
+                cart.Items.Add(itm);
+            var basket = await _repository.UpdateCartAsync(cart);
+
+            return Ok(basket);
+        }
+
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(string id)
