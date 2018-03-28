@@ -7,6 +7,9 @@ using CacheManager.Core;
 using Ocelot.Middleware;
 using Microsoft.Extensions.Logging;
 using ConfigurationBuilder = Microsoft.Extensions.Configuration.ConfigurationBuilder;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System;
 
 namespace APIGatewayPublic
 {
@@ -30,6 +33,23 @@ namespace APIGatewayPublic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var authenticationProviderKey = "TestKey";
+
+            services.AddAuthentication()
+                .AddJwtBearer(authenticationProviderKey, cfg =>
+                {
+                    cfg.RequireHttpsMetadata = false;
+                    cfg.SaveToken = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = Configuration["JwtIssuer"],
+                        ValidAudience = Configuration["JwtIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
+                        ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                    };
+                });
+
             services.AddOcelot(Configuration)
                     .AddCacheManager(x => {
                         x.WithMicrosoftLogging(log =>

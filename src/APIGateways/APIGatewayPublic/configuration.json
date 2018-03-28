@@ -1,6 +1,23 @@
 ﻿{
   "ReRoutes": [
     {
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 6377
+            }
+        ],
+        "DownstreamPathTemplate": "/",
+        "UpstreamPathTemplate": "/",
+        "UpstreamHttpMethod": ["Post"],
+        "ReRouteIsCaseSensitive": false,
+        "DownstreamScheme": "http",
+        "AuthenticationOptions": {
+            "AuthenticationProviderKey": "TestKey",
+            "AllowedScopes": []
+        }
+    },
+    {
       "DownstreamPathTemplate": "/api/v1/Cart/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

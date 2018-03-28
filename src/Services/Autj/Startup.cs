@@ -39,6 +39,9 @@ namespace Auth
 
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
+
+            var authenticationProviderKey = "TestKey";
+
             services
                 .AddAuthentication(options =>
                 {
@@ -47,7 +50,7 @@ namespace Auth
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
                 })
-                .AddJwtBearer(cfg =>
+                .AddJwtBearer(authenticationProviderKey , cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;
                     cfg.SaveToken = true;
