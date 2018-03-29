@@ -37,10 +37,12 @@ namespace Auth
                 .AddEntityFrameworkStores<AuthDbContext>()
                 .AddDefaultTokenProviders();
 
+           
+
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
 
-            var authenticationProviderKey = "TestKey";
+            //var authenticationProviderKey = "TestKey";
 
             services
                 .AddAuthentication(options =>
@@ -50,7 +52,7 @@ namespace Auth
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
                 })
-                .AddJwtBearer(authenticationProviderKey , cfg =>
+                .AddJwtBearer(cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;
                     cfg.SaveToken = true;
@@ -70,7 +72,8 @@ namespace Auth
         public void Configure(
            IApplicationBuilder app,
            IHostingEnvironment env,
-           AuthDbContext dbContext
+           AuthDbContext dbContext,
+           RoleManager<IdentityRole> roleManager 
        )
         {
             if (env.IsDevelopment())
@@ -80,7 +83,7 @@ namespace Auth
 
             // ===== Use Authentication ======
             app.UseAuthentication();
-
+            RolesData.SeedRoles(roleManager).Wait();
             app.UseMvc();
 
             // ===== Create tables ======

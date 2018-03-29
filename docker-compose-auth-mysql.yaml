@@ -1,0 +1,17 @@
+version: "3.2"
+
+networks:
+  backend:
+
+
+services:
+   authmysqlcontainer:
+     image: mysql:latest
+     environment:
+       - MYSQL_ROOT_PASSWORD=!IW2bac2821
+     container_name: authmysqlcontainer
+     ports:
+       - "3306:3306"
+     networks:
+       - backend
+

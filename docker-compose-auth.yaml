@@ -1,0 +1,34 @@
+version: "3.2"
+
+networks:
+  frontend:
+  backend:
+
+
+services:
+
+  authapi:
+    image: authimage
+    build: 
+      context: .\src\Services\Autj
+      dockerfile: Dockerfile
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development 
+    container_name: authapi
+    ports:
+      - "5080:80"
+    networks:
+      - backend
+      - frontend 
+    depends_on:
+      - authmysqlcontainer
+  
+  authmysqlcontainer:
+     image: mysql:latest
+     environment:
+       - MYSQL_ROOT_PASSWORD=!IW2bac2821
+     container_name: authmysqlcontainer
+     ports:
+       - "3306:3306"
+     networks:
+       - backend

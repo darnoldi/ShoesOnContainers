@@ -20,6 +20,12 @@ namespace Auth.Data
             const string databaseUser = "root";
             const string databasePass = "!IW2bac2821";
 
+            //return $"Server=172.18.0.2;" +
+            //       $"database={databaseName};" +
+            //       $"uid={databaseUser};" +
+            //       $"pwd={databasePass};" +
+            //       $"pooling=true;";
+
             return $"Server=localhost;" +
                    $"database={databaseName};" +
                    $"uid={databaseUser};" +

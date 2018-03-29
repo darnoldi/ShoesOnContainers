@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helper Classes", "Helper Cl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2180C891-2B96-4617-BB30-F5365FAE1FB9}"
 	ProjectSection(SolutionItems) = preProject
+		docker-compose-auth-mysql.yaml = docker-compose-auth-mysql.yaml
+		docker-compose-auth.yaml = docker-compose-auth.yaml
 		docker-compose.CartApi.redis.yml = docker-compose.CartApi.redis.yml
 		docker-compose.CartApi.yml = docker-compose.CartApi.yml
 		docker-compose.yaml = docker-compose.yaml
@@ -38,7 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIGateways", "APIGateways"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGatewayPublic", "src\APIGateways\APIGatewayPublic\APIGatewayPublic.csproj", "{F45F78F9-1699-43C8-96D4-9BB186B0FB6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "src\Services\Autj\Auth.csproj", "{76183F5F-02FB-4FAF-9BDE-03E8B0CF2E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "src\Services\Autj\Auth.csproj", "{76183F5F-02FB-4FAF-9BDE-03E8B0CF2E11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

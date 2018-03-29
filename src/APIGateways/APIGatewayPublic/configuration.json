@@ -1,21 +1,33 @@
 ﻿{
   "ReRoutes": [
     {
-        "DownstreamHostAndPorts": [
-            {
-                "Host": "localhost",
-                "Port": 6377
-            }
-        ],
-        "DownstreamPathTemplate": "/",
-        "UpstreamPathTemplate": "/",
-        "UpstreamHttpMethod": ["Post"],
-        "ReRouteIsCaseSensitive": false,
-        "DownstreamScheme": "http",
-        "AuthenticationOptions": {
-            "AuthenticationProviderKey": "TestKey",
-            "AllowedScopes": []
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5080
         }
+      ],
+      "DownstreamPathTemplate": "/account/protected",
+      "UpstreamPathTemplate": "/account/protected",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ReRouteIsCaseSensitive": false,
+      "DownstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/account/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5080
+        }
+      ],
+      "UpstreamPathTemplate": "/login",
+      "UpstreamHttpMethod": [ "Post" ]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Cart/{id}",
