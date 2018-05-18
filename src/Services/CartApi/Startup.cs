@@ -14,6 +14,10 @@ using ShoesOnContainers.Services.CartApi.Model;
 using CartApi.Model;
 using Swashbuckle.AspNetCore.Swagger;
 using ShoesOnContainers.Services.CartApi.Infrastructure.Filters;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace CartApi
 {
@@ -34,6 +38,8 @@ namespace CartApi
             {
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
             }).AddControllersAsServices();
+
+            ConfigureAuthService(services);
 
             services.Configure<CartSettings>(Configuration);
 
@@ -77,6 +83,33 @@ namespace CartApi
 
         }
 
+        private void ConfigureAuthService(IServiceCollection services)
+        {
+            // prevent from mapping "sub" claim to nameidentifier.
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            var identityUrl = Configuration.GetValue<string>("IdentityUrl");
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = identityUrl;
+                options.RequireHttpsMetadata = false;
+                options.Audience = "basket";
+                
+                //options.TokenValidationParameters.ValidateIssuerSigningKey = false;
+            });
+
+
+
+
+
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -89,11 +122,11 @@ namespace CartApi
             {
                 app.UsePathBase(pathBase);
             }
-
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             app.UseMvcWithDefaultRoute();
-
+            
             app.UseSwagger()
                .UseSwaggerUI(c =>
                {

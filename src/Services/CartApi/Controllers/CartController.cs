@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ShoesOnContainers.Services.CartApi.Model;
 using Microsoft.Extensions.Logging;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ShoesOnContainers.Services.CartApi.Controllers
 {
@@ -21,6 +22,7 @@ namespace ShoesOnContainers.Services.CartApi.Controllers
             _logger = factory.CreateLogger<CartController>();
         }
         // GET api/values/5
+        [Authorize]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(Cart), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Get(string id)

@@ -59,7 +59,12 @@ namespace Auth
                     cfg.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidIssuer = Configuration["JwtIssuer"],
-                        ValidAudience = Configuration["JwtIssuer"],
+                        ValidAudiences = new List<string >
+                        {
+                            Configuration["JwtIssuer"],
+                            "basket"
+                        },
+                        
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
